@@ -157,7 +157,7 @@ public class SearchFragment extends Fragment {
             nameValuePairs.add(new BasicNameValuePair("getAll", getAll));
             nameValuePairs.add(new BasicNameValuePair("blood", ""));
             nameValuePairs.add(new BasicNameValuePair("country", ""));
-            setupPHPConnection(nameValuePairs, "http://ieee-scu.org/donor.php");
+            setupPHPConnection(nameValuePairs, "");
 
         } else {
 
@@ -167,7 +167,7 @@ public class SearchFragment extends Fragment {
             nameValuePairs.add(new BasicNameValuePair("getAll", getAll));
             nameValuePairs.add(new BasicNameValuePair("blood", blood));
             nameValuePairs.add(new BasicNameValuePair("country", country));
-            setupPHPConnection(nameValuePairs, "http://ieee-scu.org/donor.php");
+            setupPHPConnection(nameValuePairs, "");
 
         }
 
