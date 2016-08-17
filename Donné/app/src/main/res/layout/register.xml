@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1"
+
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:weightSum="1">
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Join NeedBlood Network"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="#2E7D32"
+                        android:textStyle="bold" />
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:ems="10"
+                            android:hint="Name"
+
+                            android:inputType="textPersonName" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:ems="10"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Facebook username" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:ems="10"
+                            android:hint="Phone Number"
+                            android:inputType="phone" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:ems="10"
+                            android:hint="Blood Type" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:ems="10"
+                            android:hint="Password"
+                            android:inputType="textPassword" />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+
+                        android:spinnerMode="dropdown" />
+
+
+                    <Button
+                        android:id="@+id/reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorPrimary"
+
+                        android:text="Register"
+                        android:textColor="#fff" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+

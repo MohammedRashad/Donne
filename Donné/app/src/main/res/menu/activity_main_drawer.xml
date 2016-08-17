@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/m"
+        android:checkableBehavior="single">
+
+        <group
+            android:id="@+id/z"
+            android:checkableBehavior="single">
+            <item
+                android:id="@+id/home"
+                android:title="Home" />
+        </group>
+
+
+        <group android:checkableBehavior="single">
+
+
+            <item
+                android:id="@+id/learn"
+                android:title="Learn" />
+            <item
+                android:id="@+id/check"
+                android:title="Check Eligibility" />
+        </group>
+
+
+        <group
+            android:id="@+id/x"
+            android:checkableBehavior="single">
+
+            <item
+                android:id="@+id/donor"
+                android:title="Become a donor" />
+            <item
+                android:id="@+id/get"
+                android:title="Get Blood" />
+            <item
+                android:id="@+id/bloodsched"
+                android:title="My Donation Schedule " />
+        </group>
+
+
+        <group
+            android:id="@+id/y"
+            android:checkableBehavior="single">
+
+            <item
+                android:id="@+id/spread"
+                android:title="Spread the word" />
+
+            <item
+                android:id="@+id/about"
+                android:title="About" />
+        </group>
+
+
+    </group>
+
+</menu>
