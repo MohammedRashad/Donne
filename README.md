@@ -38,13 +38,13 @@ No, we don't sell your data to anyone or even give it for free, data is only ava
 
 # App Feautres :
 
-★ Material-Designed. 
-★ Open-Source Project. 
-★ NeedBlood Platform. 
-★ Blood donation schedule automation. 
-★ Wiki for blood donation info and facts. 
-★ Blood donors database. 
-★ Even more.. 
+★ Material-Designed.   
+★ Open-Source Project.  
+★ NeedBlood Platform.   
+★ Blood donation schedule automation.   
+★ Wiki for blood donation info and facts.   
+★ Blood donors database.   
+★ Even more..   
 
 
 # Donné Project :
