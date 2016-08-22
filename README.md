@@ -1,4 +1,4 @@
-# Donné
+# Donné Beta
 
 An open-source blood donation platform.
 
