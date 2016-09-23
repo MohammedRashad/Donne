@@ -1,6 +1,6 @@
 # Donné Beta
 
-An open-source blood donation platform.
+Open-source blood donation platform.
 
 Project by IEEE SCU SB 
 
@@ -50,3 +50,4 @@ No, we don't sell your data to anyone or even give it for free, data is only ava
 # License :
 
 The project is open source and licensed under GNU Public License v3.0
+ 
