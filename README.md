@@ -2,7 +2,7 @@
 
 An open-source blood donation platform.
 
-A project by IEEE SCU SB 
+Project by IEEE SCU SB 
 
 
 # Introduction :
