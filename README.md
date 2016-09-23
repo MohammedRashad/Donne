@@ -21,10 +21,10 @@ Donné is an online, peer-to-peer blood donation platform that allows blood dona
 
 # How Donné works ?
 
-1) You register in our platform as a donor then you are available to anyone who need blood.
-2) People who need blood will search by country and blood type.
-3) They will use the contact methods you provided to contact you and make an appointment with you to donate.
-4) Voila! You saved a live.
+- You register in our platform as a donor then you are available to anyone who need blood.
+- People who need blood will search by country and blood type.
+- They will use the contact methods you provided to contact you and make an appointment with you to donate.
+- Voila! You saved a live.
 
 
 # How do I benefit from Donné ?
@@ -47,6 +47,6 @@ No, we don't sell your data to anyone or even give it for free, data is only ava
 ★ Even more..   
 
 
-# Donné Project :
+# License :
 
 The project is open source and licensed under GNU Public License v3.0
