@@ -40,7 +40,7 @@ Our goal is to mainly decrease the number of posts on social media requesting bl
 
 # How do I benefit from Donné ?
 
-NeedBlood will help you to join the community of blood donors and help making our world a better place to live in. Also it will benefit you in person; your blood donation schedule will be organized and automated, blood donation is very important for general health, it helps to renew blood and body on regular basis.
+Donné will help you to join the community of blood donors and help making our world a better place to live in. Also it will benefit you in person; your blood donation schedule will be organized and automated, blood donation is very important for general health, it helps to renew blood and body on regular basis.
 
 **My Data!**
 
