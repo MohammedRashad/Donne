@@ -1,9 +1,10 @@
 # Donné
 
-Open-source blood donation platform.
+Open-source blood donation platform, formely known as NeedBlood.
 
-Project by IEEE SCU SB 
+Project supported by **IEEE SCU SB** , Current Version : 2.0.
 
+**Playstore release SOON!!**
 
 # Introduction :
 
@@ -12,9 +13,13 @@ Blood donation is a serious global issue, and blood is needed everyday for patie
 We decided to change this and we developed a platform where blood donation could be revolutionized around the world.. 
 We created Donné.
 
-The app was named after Alfred Donné, the discoverer of blood platelets 
+The app was named after Alfred Donné, the discoverer of blood platelets and leukemia.
 
 # What is Donné ?
+
+Donné is the social network of blood donors, instead of sharing photos and posts we share our blood to the ones who need it.
+
+Donné was built by users, for users, it's easy to use and gets the job done with the least number of steps possible.  
 
 Donné is an online, peer-to-peer blood donation platform that allows blood donation to happen without the need of searching the internet for blood donors, also an app which test your eligibility to donate blood, make a blood donation schedule and a wiki section to raise blood donation awareness.
 
@@ -22,29 +27,38 @@ Donné is an online, peer-to-peer blood donation platform that allows blood dona
 # How Donné works ?
 
 - You register in our platform as a donor then you are available to anyone who need blood.
-- People who need blood will search by country and blood type.
-- They will use the contact methods you provided to contact you and make an appointment with you to donate.
+- People who need blood will send requests by city and blood type.
+- Corresponding people will receive notitifcations with required blood and contact data.
+- Relax and wait for someone to contact you.
 - Voila! You saved a live.
+
+# Platform Goal
+
+Our goal is to mainly decrease the number of posts on social media requesting blood and only getting interactions with little or no donors at all to save people, moving them to a platform that one can hopefully find a donor quickly. Also to spread awareness about blood donation around the country.
 
 
 # How do I benefit from Donné ?
 
 NeedBlood will help you to join the community of blood donors and help making our world a better place to live in. Also it will benefit you in person; your blood donation schedule will be organized and automated, blood donation is very important for general health, it helps to renew blood and body on regular basis.
 
-My Data!
+**My Data!**
 
-No, we don't sell your data to anyone or even give it for free, data is only available through our android app.
+No, we don't sell your data to anyone or even give it for free, data is only available through our android app and firebase backend.
 
 
 # App Feautres :
 
-★ Material-Designed.   
-★ Open-Source Project.  
-★ NeedBlood Platform.   
-★ Blood donation schedule automation.   
-★ Wiki for blood donation info and facts.   
+★ Cloud based (Google Firebase).
+★ Login/Register Accounts.
+★ User profiles.
+★ Simple UI.
+★ Blood donors search.
+★ Blood donation schedule.
 ★ Blood donors database.   
-★ Even more..   
+★ Wiki for blood donation info and facts.   
+★ Receive push notifications when blood is needed.
+★ Contact requesting patient through Calls, Facebook or SMS.
+
 
 
 # License :
