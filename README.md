@@ -1,4 +1,4 @@
-# Donné
+# Donné (Beta)
 
 Open-source blood donation platform, formely known as NeedBlood.
 
@@ -29,7 +29,7 @@ Donné is an online, peer-to-peer blood donation platform that allows blood dona
 
 - You register in our platform as a donor then you are available to anyone who need blood.
 - People who need blood will send requests by city and blood type.
-- Corresponding people will receive notitifcations with required blood and contact data.
+- Corresponding people will receive notifications with required blood and contact data.
 - Relax and wait for someone to contact you.
 - Voila! You saved a live.
 
