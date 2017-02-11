@@ -2,9 +2,7 @@
 
 Open-source blood donation platform, formely known as NeedBlood.
 
-Project supported by **IEEE SCU SB** , Current Version : 2.0.
-
-**Playstore release SOON!!**
+Project supported by **IEEE SCU SB** , Current Version : 2.0 , **Playstore release SOON!!**
 
 # Introduction :
 
