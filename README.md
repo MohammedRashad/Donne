@@ -48,20 +48,19 @@ No, we don't sell your data to anyone or even give it for free, data is only ava
 
 # App Feautres :
 
-★ Cloud based (Google Firebase).
-★ Login/Register Accounts.
-★ User profiles.
-★ Simple UI.
-★ Blood donors search.
-★ Blood donation schedule.
-★ Blood donors database.   
-★ Wiki for blood donation info and facts.   
-★ Receive push notifications when blood is needed.
-★ Contact requesting patient through Calls, Facebook or SMS.
-
+★ Cloud based (Google Firebase). <br/>
+★ Login/Register Accounts.<br/>
+★ User profiles.<br/>
+★ Simple UI.<br/>
+★ Blood donors search.<br/>
+★ Blood donation schedule.<br/>
+★ Blood donors database.   <br/>
+★ Wiki for blood donation info and facts.   <br/>
+★ Receive push notifications when blood is needed.<br/>
+★ Contact requesting patient through Calls, Facebook or SMS.<br/>
 
 
 # License :
 
-The project is open source and licensed under GNU Public License v3.0
+The project licensed under GNU Public License v3.0
  
