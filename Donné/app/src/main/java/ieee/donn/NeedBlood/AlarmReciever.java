@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.NeedBlood;
+package ieee.donn.NeedBlood;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.support.v7.app.NotificationCompat;
 import android.widget.Toast;
 
-import bloodbank.ieee.com.bloodbank.Main.MainActivity;
+import ieee.donn.Main.MainActivity;
 
 /**
  * .

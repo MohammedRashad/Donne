@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.LearnFragmentFiles;
+package ieee.donn.LearnFragmentFiles;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ieee.donne.R;
+import ieee.donn.R;
 
 
 /**

@@ -413,6 +413,138 @@
 
             </android.support.v7.widget.CardView>
 
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.05"
+                        android:gravity="center"
+                        android:text="Question 7"
+                        android:textColor="#2E7D32"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="0.23"
+                        android:text="\nDid you travel overseas in the last 4 months ?\n"
+                        android:textColor="#000"
+                        android:textSize="19sp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.65"
+                        android:gravity="bottom">
+
+                        <RadioButton
+                            android:id="@+id/radioButton21"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton18"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="No" />
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.05"
+                        android:gravity="center"
+                        android:text="Question 8"
+                        android:textColor="#2E7D32"
+
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="0.23"
+                        android:text="\nDid you participate in any same-sex intercourse ?\n"
+                        android:textColor="#000"
+                        android:textSize="19sp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.65"
+                        android:gravity="bottom">
+
+                        <RadioButton
+                            android:id="@+id/radioButton19"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton20"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="No" />
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -437,6 +569,7 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
 
 
         </LinearLayout>

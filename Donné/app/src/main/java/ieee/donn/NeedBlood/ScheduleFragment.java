@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.NeedBlood;
+package ieee.donn.NeedBlood;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -17,7 +17,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ieee.donne.R;
+import ieee.donn.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

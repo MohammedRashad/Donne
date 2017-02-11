@@ -35,7 +35,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:layout_marginTop="12dp"
-                        android:text="NeedBlood has many registered donors\n\nThey are from different places, with different idiologies, but all of them wants to make a better life for others, they will gladly help anyone in need.\n\nYou can use needblood's platform to search for donors to help you in urgent cases."
+                        android:text="Donné has many registered donors\n\nThey are from different places, with different ideologies, but all of them want to make a better life for others, they will gladly help anyone in need.\n\nYou can use this platform to search for donors to help you in urgent cases."
                         android:textColor="#000" />
 
 
@@ -100,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:background="@color/colorPrimary"
-                        android:text="Search"
+                        android:text="Request Blood"
                         android:textColor="#fff" />
 
 

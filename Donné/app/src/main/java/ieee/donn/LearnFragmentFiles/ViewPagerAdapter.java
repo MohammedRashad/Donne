@@ -1,10 +1,10 @@
-package bloodbank.ieee.com.bloodbank.LearnFragmentFiles;
+package  ieee.donn.LearnFragmentFiles;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bloodbank.ieee.com.bloodbank.Fragments.LearnFragment;
+import  ieee.donn.Fragments.LearnFragment;
 
 
 /**

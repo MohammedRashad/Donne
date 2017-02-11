@@ -78,7 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="NeedBlood has many registered donors. They are form different places, with different idiologies. But all of them wants to make a better life for others. They will gladly help anyone in need. \n\nYou can use NeedBlood&apos;s platform to find donors to help you in urgent cases.\n\nChoose your blood type and get notified when a donor matches your type."
+                        android:text="Donné has many registered donors. They are form different places, with different idiologies. But all of them wants to make a better life for others. They will gladly help anyone in need. \n\nYou can use NeedBlood&apos;s platform to find donors to help you in urgent cases.\n\nChoose your blood type and get notified when a donor matches your type."
                         android:textColor="#000"
                         android:textSize="15sp" />
 

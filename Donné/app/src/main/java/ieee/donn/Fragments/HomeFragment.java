@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.Fragments;
+package ieee.donn.Fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,29 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ieee.donne.R;
-
-import bloodbank.ieee.com.bloodbank.NeedBlood.GetBloodFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.ProfileFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.RegisterWelcomeFragment;
-import bloodbank.ieee.com.bloodbank.QuizFragments.TakeQuizFragment;
+import ieee.donn.NeedBlood.GetBloodFragment;
+import ieee.donn.NeedBlood.ProfileFragment;
+import ieee.donn.QuizFragments.TakeQuizFragment;
+import ieee.donn.R;
 
 
 public class HomeFragment extends Fragment {
 
-    CardView join,check,get;
-    TextView joinText;
-    FragmentTransaction fragmentTransaction;
+    View root;
     Toolbar toolbar;
-    String logged;
-    SharedPreferences sse;
+    TextView joinText;
+    CardView join, check, get;
+    FragmentTransaction fragmentTransaction;
 
-    public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.home, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        root = inflater.inflate(R.layout.home, container, false);
 
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("NeedBlood");
+        toolbar.setTitle("Donné");
 
         join = (CardView) root.findViewById(R.id.join);
         check = (CardView) root.findViewById(R.id.check);
@@ -42,7 +40,8 @@ public class HomeFragment extends Fragment {
 
         joinText = (TextView) root.findViewById(R.id.text);
 
-        loadPreferences();
+        joinText.setText("Donné Profile");
+
 
         get.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,15 +64,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (logged.equals("1")) {
-
-                    setCurrentFragment(new ProfileFragment(), "NeedBlood Profile");
-
-                } else {
-
-                    setCurrentFragment(new RegisterWelcomeFragment(), "Register/Login");
-
-                }
+                setCurrentFragment(new ProfileFragment(), "Donné Profile");
 
             }
         });
@@ -87,32 +78,12 @@ public class HomeFragment extends Fragment {
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
 
         fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-         fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
         fragmentTransaction.replace(R.id.mainFrame, newFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
         toolbar.setTitle(title);
-
-
-    }
-
-
-
-    public void loadPreferences() {
-
-        sse = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        logged = sse.getString("code", "0");
-
-        if (logged.equals("1")) {
-
-            joinText.setText("NeedBlood Profile");
-
-        } else {
-
-            joinText.setText("Join NeedBlood");
-
-        }
 
     }
 

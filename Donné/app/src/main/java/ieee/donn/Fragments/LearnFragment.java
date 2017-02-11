@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.Fragments;
+package ieee.donn.Fragments;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -9,9 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ieee.donne.R;
+import ieee.donn.LearnFragmentFiles.ViewPagerAdapter;
+import  ieee.donn.R;
 
-import bloodbank.ieee.com.bloodbank.LearnFragmentFiles.ViewPagerAdapter;
+
 
 /**
  * Created by rashad on 5/16/16.
@@ -31,7 +32,6 @@ public class LearnFragment extends Fragment {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
 
         viewPager.setAdapter(viewPagerAdapter);
-
 
         tabLayout.setupWithViewPager(viewPager);
 

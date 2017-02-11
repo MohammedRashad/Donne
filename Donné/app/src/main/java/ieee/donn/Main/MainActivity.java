@@ -1,8 +1,8 @@
-package bloodbank.ieee.com.bloodbank.Main;
+package ieee.donn.Main;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,38 +12,35 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.ieee.donne.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
-
-import bloodbank.ieee.com.bloodbank.Fragments.AboutFragment;
-import bloodbank.ieee.com.bloodbank.Fragments.HomeFragment;
-import bloodbank.ieee.com.bloodbank.Fragments.LearnFragment;
-import bloodbank.ieee.com.bloodbank.Fragments.SpreadFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.GetBloodFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.ProfileFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.RegisterWelcomeFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.ScheduleFragment;
-import bloodbank.ieee.com.bloodbank.QuizFragments.TakeQuizFragment;
-import bloodbank.ieee.com.bloodbank.SearchFiles.DataObject;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import ieee.donn.Fragments.AboutFragment;
+import ieee.donn.Fragments.HomeFragment;
+import ieee.donn.Fragments.LearnFragment;
+import ieee.donn.Fragments.SpreadFragment;
+import ieee.donn.NeedBlood.GetBloodFragment;
+import ieee.donn.NeedBlood.ProfileFragment;
+import ieee.donn.NeedBlood.ScheduleFragment;
+import ieee.donn.QuizFragments.TakeQuizFragment;
+import ieee.donn.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     int id;
 
-
-    String logged;
+    String mUserId;
     Toolbar toolbar;
     MenuItem nav_donor;
     DrawerLayout drawer;
-    SharedPreferences sse;
+    FirebaseUser mFirebaseUser;
+    FirebaseAuth mFirebaseAuth;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
     FragmentTransaction fragmentTransaction;
-    public static ArrayList<DataObject> models;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +51,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationActivity();
         loadPreferences();
 
+        if (getIntent().getExtras() != null) {
 
-        setCurrentFragment(new HomeFragment(), "NeedBlood");
+            for (String key : getIntent().getExtras().keySet()) {
+
+                String value = getIntent().getExtras().getString(key);
+
+                if (key.equals("AnotherActivity")) {
+
+                    Toast.makeText(this, value, Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        }
+
+        setCurrentFragment(new HomeFragment(), "Donné");
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+        if (mFirebaseUser == null) {
+
+            startActivity(new Intent(this, LoginSignUp.class));
+            finish();
+
+        } else {
+
+            mUserId = mFirebaseUser.getUid();
+
+        }
 
     }
 
@@ -142,15 +167,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.donor:
 
-                if (logged.equals("1")) {
 
-                    setCurrentFragment(new ProfileFragment(), "Donné Profile");
+                setCurrentFragment(new ProfileFragment(), "Donné Profile");
 
-                } else {
-
-                    setCurrentFragment(new RegisterWelcomeFragment(), "Register/Login");
-
-                }
 
                 break;
 
@@ -190,20 +209,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void loadPreferences() {
 
-        sse = PreferenceManager.getDefaultSharedPreferences(this);
-        logged = sse.getString("code", "0");
-
-        if (logged.equals("1")) {
-
-            nav_donor = navigationView.getMenu().findItem(R.id.donor);
-            nav_donor.setTitle("Donné Profile");
-
-        } else {
-
-            nav_donor = navigationView.getMenu().findItem(R.id.donor);
-            nav_donor.setTitle("Join Donné");
-
-        }
+        nav_donor = navigationView.getMenu().findItem(R.id.donor);
+        nav_donor.setTitle("Donné Profile");
 
     }
 

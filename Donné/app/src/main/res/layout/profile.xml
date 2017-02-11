@@ -35,11 +35,12 @@
 
 
                     <TextView
-                        android:id="@+id/personc_name"
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="User Info"
+                        android:text="Name"
+                        android:gravity="center"
                         android:textColor="#2E7D32"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -53,22 +54,14 @@
 
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp"
-                        android:text="Name : Mohamed Rashad "
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#000" />
+
 
                     <TextView
                         android:id="@+id/phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="7dp"
-                        android:text="Phone : 01155233442 "
+                        android:text="Phone : "
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000" />
 
@@ -77,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Country : Egypt"
+                        android:text="City : "
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000" />
 
@@ -97,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="7dp"
                         android:layout_marginTop="10dp"
-                        android:text="Email : mrashad74@gmail.com"
+                        android:text="Email :"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000" />
 
@@ -106,7 +99,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Facebook : rashaddism"
+                        android:text="Facebook :"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000" />
 
@@ -125,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_marginTop="10dp"
-                        android:text="Blood Type :  B+"
+                        android:text="Blood Type :"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColor="#000" />
 
@@ -149,16 +142,6 @@
                         android:background="@color/colorPrimary"
                         android:text="Logout"
                         android:textColor="#fff" />
-
-                    <Button
-                        android:id="@+id/delete"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:background="@color/colorPrimary"
-                        android:text="Delete Account"
-                        android:textColor="#fff" />
-
 
 
                 </LinearLayout>

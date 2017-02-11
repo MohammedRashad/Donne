@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEFF1"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <ScrollView
@@ -19,62 +19,73 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
 
-                android:layout_margin="10dp">
+                android:layout_margin="15dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:padding="16dp"
-                    android:weightSum="1">
+                    android:background="@color/colorPrimary">
 
 
                     <TextView
-                        android:id="@+id/textRes"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.05"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Donné"
+                        android:id="@+id/textView10"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textSize="45dp"
+                        android:textColor="#fff"
                         android:gravity="center"
-                        android:text="Welcome to NeedBlood!"
-
-                        android:textColor="#2E7D32"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/data"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_weight="0.23"
-                        android:text="We are happy you are here, you want to volunteer as a blood donor, now you can use NeeedBlood Service to register your self as a volunteer blood donor and help saving lives.\n\nHow it works?\nYou register your data in our database including name blood type age and a contact method.\nwhen someone needs a donor he searches our database and contacts the donor directly, no persons on between, which facilitate the donation process and provides a great number of donors.\n\nNote :\nWe are not responsible of scamming of some people or the inability to donate, we are just an interface between donors and patients. Please don't pay anyone for is donation because that's not legal."
-                        android:textColor="#000"
-                        android:textSize="15sp" />
-
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="109dp"
+                        android:layout_alignRight="@+id/login"
+                        android:layout_alignEnd="@+id/login"
+                        android:layout_alignLeft="@+id/login"
+                        android:layout_alignStart="@+id/login" />
 
                     <Button
-                        android:id="@+id/reg"
+                        android:id="@+id/login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorPrimary"
-                        android:text="Register in NeedBlood"
-                        android:textColor="#fff" />
+                        android:text="Sign in"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="#fff"
+                        android:layout_above="@+id/reg"
+                        android:layout_centerHorizontal="true" />
 
 
                     <TextView
-                        android:id="@+id/login"
+                        android:id="@+id/reg"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Have an account? Click to log in"
+                        android:text="Don't Have an account? Click to sign up"
                         android:textColor="#c0c0c0"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginBottom="155dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignLeft="@+id/login"
+                        android:layout_alignStart="@+id/login" />
 
-                </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Becuase Every Soul Counts"
+                        android:id="@+id/textView12"
+                        android:textColor="#fff"
+                        android:layout_marginBottom="4dp"
+                        android:layout_below="@+id/textView10"
+                        android:layout_centerHorizontal="true" />
+
+                </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 

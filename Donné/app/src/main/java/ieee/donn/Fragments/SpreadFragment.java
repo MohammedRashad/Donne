@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.Fragments;
+package ieee.donn.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.ieee.donne.R;
+import ieee.donn.R;
 
 
 /**
@@ -32,7 +32,7 @@ public class SpreadFragment extends Fragment {
             public void onClick(View v) {
 
                 //TODO Add the test
-                share("#NeedBlood is an open-source blood donation network, you can view the source code here : https://github.com/MohammedRashad/NeedBlood");
+                share("#Donné is an open-source blood donation network, you can view the source code here : https://github.com/MohammedRashad/Donne");
 
             }
         });
@@ -43,7 +43,7 @@ public class SpreadFragment extends Fragment {
 
                 //TODO Add the test
 
-                share("#NeedBlood is an open-source blood donation network, you can get it here : https://play.google.com/store/apps/details?id=bloodbank.ieee.com.bloodbank");
+                share("#Donné is an open-source blood donation network, you can get it here : https://play.google.com/store/apps/details?id=bloodbank.ieee.com.bloodbank");
 
 
             }
@@ -53,7 +53,7 @@ public class SpreadFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                share("Everyday, All around the world, thousands of people are on the verge of dying due to their need to blood.\n\nYou can change this by giving away your blood..\n\nBecome a hero and save someone's live by giving them the gift of live!\n\n#NeedBlood");
+                share("Everyday, All around the world, thousands of people are on the verge of dying due to their need to blood.\n\nYou can change this by giving away your blood..\n\nBecome a hero and save someone's live by giving them the gift of live!\n\n#Donné");
 
             }
         });

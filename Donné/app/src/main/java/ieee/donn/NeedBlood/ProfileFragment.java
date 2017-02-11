@@ -1,10 +1,10 @@
-package bloodbank.ieee.com.bloodbank.NeedBlood;
+package ieee.donn.NeedBlood;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,49 +13,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ieee.donne.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import dmax.dialog.SpotsDialog;
+import ieee.donn.Main.MainActivity;
+import ieee.donn.R;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 /**
  * .
  * Created by rashad on 5/31/16.
+ * .
  * .
  */
 
 
 public class ProfileFragment extends Fragment {
 
-    int code = 0;
-    StringBuilder sb;
-    BufferedReader reader;
-    JSONObject json_data, c, peoples;
-    InputStream is;
-    SharedPreferences sse;
-    Button logout, delete;
-    String nameStr, emailStr, phoneStr, bloodStr, facebookStr, countryStr, result, line;
+    FirebaseAuth mFirebaseAuth;
+    Button logout;
     TextView name, email, phone, blood, facebook, country;
-    ProgressDialog dialog;
+
+
+
+    String mUserId;
+    FirebaseUser mFirebaseUser;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         View root = inflater.inflate(R.layout.profile, container, false);
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("NeedBlood Profile");
+        toolbar.setTitle("Donné Profile");
+
 
         name = (TextView) root.findViewById(R.id.name);
         email = (TextView) root.findViewById(R.id.email);
@@ -65,56 +64,77 @@ public class ProfileFragment extends Fragment {
         blood = (TextView) root.findViewById(R.id.blood);
 
         logout = (Button) root.findViewById(R.id.logout);
-        delete = (Button) root.findViewById(R.id.delete);
 
-        sse = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        mUserId = mFirebaseUser.getUid();
 
-        nameStr = sse.getString("name", "0");
-        emailStr = sse.getString("email", "0");
-        phoneStr = sse.getString("phone", "0");
-        bloodStr = sse.getString("blood", "0");
-        facebookStr = sse.getString("facebook", "0");
-        countryStr = sse.getString("country", "Egypt");
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        name.setText("Name : " + nameStr);
-        email.setText("Email : " + emailStr);
-        country.setText("Country : " + countryStr);
-        phone.setText("Phone : 0" + phoneStr);
-        facebook.setText("Facebook : " + facebookStr);
-        blood.setText("Blood Type : " + bloodStr);
+        final AlertDialog dialog = new SpotsDialog(getActivity(), "Loading..");
+
+        dialog.show();
+        mDatabase.child("users").child(mUserId).child("data").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                name.setText("" + dataSnapshot.child("name").getValue());
+                email.setText("Email : " + dataSnapshot.child("email").getValue());
+                facebook.setText("Facebook : " + dataSnapshot.child("facebook").getValue());
+                country.setText("City : " + dataSnapshot.child("city").getValue());
+                phone.setText("Phone : " + dataSnapshot.child("phone").getValue());
+                blood.setText("Blood Type : " + dataSnapshot.child("blood").getValue());
+
+                save("email" , ""+dataSnapshot.child("email").getValue());
+                save("phone" , ""+dataSnapshot.child("phone").getValue());
+                save("facebook" , ""+dataSnapshot.child("facebook").getValue());
+                save("name" , ""+dataSnapshot.child("name").getValue());
+
+                dialog.dismiss();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                save("name", "0");
-                save("email", "0");
-                save("phone", "0");
-                save("blood", "0");
-                save("facebook", "0");
-                save("country", "0");
-                save("code", "0");
+                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Logout ?")
+                        .setCancelText("No")
+                        .setConfirmText("Yes")
+                        .showCancelButton(true)
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                            }
+                        })
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
 
-                getActivity().recreate();
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                                mFirebaseAuth.signOut();
+                                getActivity().recreate();
+
+                            }
+                        }).show();
 
             }
         });
 
 
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                new Delete().execute();
-
-            }
-        });
 
         return root;
 
     }
-
 
     public void save(String key, String value) {
 
@@ -124,144 +144,5 @@ public class ProfileFragment extends Fragment {
         edit.commit();
 
     }
-
-
-    public class Delete extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-
-            dialog = ProgressDialog.show(getActivity(), "Getting data", "Loading, Please wait...", true);
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            dialog.dismiss();
-
-
-            if (code == 1) {
-
-                Log.d("NeedBlood", "Operation Successful");
-
-                save("name", "0");
-                save("email", "0");
-                save("phone", "0");
-                save("blood", "0");
-                save("facebook", "0");
-                save("country", "0");
-                save("code", "0");
-
-                getActivity().recreate();
-
-
-            } else {
-
-                Log.d("NeedBlood", "Error..!");
-
-            }
-
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            delete();
-            return null;
-
-        }
-    }
-
-    public void delete() {
-
-        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-
-        nameValuePairs.add(new BasicNameValuePair("email", emailStr));
-
-        setupPHPConnection(nameValuePairs, "http://ieee-scu.org/delete.php");
-
-        parseJSON();
-
-    }
-
-    public String getResponse() {
-
-        try {
-
-            reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
-            sb = new StringBuilder();
-
-            while ((line = reader.readLine()) != null) {
-
-                sb.append(line + "\n");
-            }
-
-            is.close();
-            result = sb.toString();
-
-            Log.e("pass 2", "connection success ");
-
-        } catch (Exception e) {
-
-            Log.e("Fail 2", e.toString());
-
-        }
-
-        return result;
-    }
-
-
-    public void parseJSON() {
-
-        try {
-
-            json_data = new JSONObject(getResponse());
-            code = json_data.getInt("code");
-
-            if (code == 1) {
-
-                Log.e("pass 3", result + "");
-
-            } else {
-
-                Log.e("Fail 3", code + "");
-
-            }
-
-        } catch (Exception e) {
-
-            Log.e("Fail 3", e.toString());
-
-        }
-    }
-
-
-    public void setupPHPConnection(ArrayList<NameValuePair> nameValuePairs, String url) {
-
-        try {
-
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(url);
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            HttpResponse response = httpclient.execute(httppost);
-            HttpEntity entity = response.getEntity();
-            is = entity.getContent();
-
-            Log.e("pass 1", "connection success ");
-
-        } catch (Exception e) {
-
-            Log.e("Fail 1", e.toString());
-
-            Toast.makeText(getActivity(), "Invalid IP Address", Toast.LENGTH_LONG).show();
-
-        }
-
-
-    }
-
 
 }

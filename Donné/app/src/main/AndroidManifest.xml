@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -23,9 +24,26 @@
         </activity>
 
         <receiver
-            android:name="ieee.donn.NeedBlood.AlarmReciever"
+            android:name=".NeedBlood.AlarmReciever"
             android:process=":remote" />
 
+        <service android:name=".Services.MessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Services.IDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".Main.LoginSignUp"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Main.ConnectUsers"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

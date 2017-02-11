@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.Fragments;
+package ieee.donn.Fragments;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -11,74 +11,72 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
-import com.ieee.donne.R;
-
-import bloodbank.ieee.com.bloodbank.QuizFragments.ResultFragment;
+import ieee.donn.QuizFragments.ResultFragment;
+import ieee.donn.R;
 
 /**
  * Created by rashad on 5/16/16.
  */
 public class QuizFragment extends Fragment {
 
-    RadioGroup question1, question2, question3, question4, question5, question6;
+    RadioGroup[] question = new RadioGroup[8];
     Button result;
     View root;
+    int[] q = new int[8];
 
-    int q1, q2, q3, q4, q5, q6;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.quiz, container, false);
-
-        q1 = q2 = q3 = q4 = q5 = q6 = -1;
+        root = inflater.inflate(R.layout.quiz, container, false);
 
         result = (Button) root.findViewById(R.id.result);
 
-        question1 = (RadioGroup) root.findViewById(R.id.radioGroup1);
-        question2 = (RadioGroup) root.findViewById(R.id.radioGroup2);
-        question3 = (RadioGroup) root.findViewById(R.id.radioGroup3);
-        question4 = (RadioGroup) root.findViewById(R.id.radioGroup4);
-        question5 = (RadioGroup) root.findViewById(R.id.radioGroup5);
-        question6 = (RadioGroup) root.findViewById(R.id.radioGroup6);
+        question[0] = (RadioGroup) root.findViewById(R.id.radioGroup1);
+        question[1] = (RadioGroup) root.findViewById(R.id.radioGroup2);
+        question[2] = (RadioGroup) root.findViewById(R.id.radioGroup3);
+        question[3] = (RadioGroup) root.findViewById(R.id.radioGroup4);
+        question[4] = (RadioGroup) root.findViewById(R.id.radioGroup5);
+        question[5] = (RadioGroup) root.findViewById(R.id.radioGroup6);
+        question[6] = (RadioGroup) root.findViewById(R.id.radioGroup7);
+        question[7] = (RadioGroup) root.findViewById(R.id.radioGroup8);
 
 
-        question1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[0].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.radioButton || checkedId == R.id.radioButton3) {
 
-                    q1 = 0;
+                    q[0] = 0;
 
                 } else if (checkedId == R.id.radioButton2) {
 
-                    q1 = 1;
+                    q[0] = 1;
 
                 } else {
 
-                    q1 = -1;
+                    q[0] = -1;
 
                 }
-
 
             }
         });
 
-        question2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[1].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.radioButton4 || checkedId == R.id.radioButton5) {
 
-                    q2 = 0;
+                    q[1] = 0;
 
                 } else if (checkedId == R.id.radioButton6) {
 
-                    q2 = 1;
+                    q[1] = 1;
 
                 } else {
 
-                    q2 = -1;
+                    q[1] = -1;
 
                 }
 
@@ -86,44 +84,42 @@ public class QuizFragment extends Fragment {
             }
         });
 
-        question3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[2].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.radioButton7) {
 
-                    q3 = 0;
+                    q[2] = 0;
 
                 } else if (checkedId == R.id.radioButton8) {
 
-                    q3 = 1;
+                    q[2] = 1;
 
                 } else {
 
-                    q3 = -1;
-
+                    q[2] = -1;
 
                 }
-
 
             }
         });
 
-        question4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[3].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.radioButton10) {
 
-                    q4 = 0;
+                    q[3] = 0;
 
                 } else if (checkedId == R.id.radioButton11) {
 
-                    q4 = 1;
+                    q[3] = 1;
 
                 } else {
 
-                    q4 = -1;
+                    q[3] = -1;
 
                 }
 
@@ -131,22 +127,22 @@ public class QuizFragment extends Fragment {
             }
         });
 
-        question5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[4].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
 
                 if (checkedId == R.id.radioButton13) {
 
-                    q5 = 0;
+                    q[4] = 0;
 
                 } else if (checkedId == R.id.radioButton14) {
 
-                    q5 = 1;
+                    q[4] = 1;
 
                 } else {
 
-                    q6 = -1;
+                    q[4] = -1;
 
                 }
 
@@ -155,26 +151,72 @@ public class QuizFragment extends Fragment {
         });
 
 
-        question6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        question[5].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.radioButton16) {
 
-                    q6 = 0;
+                    q[5] = 0;
 
                 } else if (checkedId == R.id.radioButton17) {
 
-                    q6 = 1;
+                    q[5] = 1;
 
                 } else {
 
-                    q6 = -1;
+                    q[5] = -1;
                 }
 
 
             }
         });
+
+
+        question[6].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.radioButton18) {
+
+                    q[6] = 1;
+
+                } else if (checkedId == R.id.radioButton21) {
+
+                    q[6] = 0;
+
+                } else {
+
+                    q[6] = -1;
+                }
+
+
+            }
+        });
+
+
+
+        question[7].setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.radioButton20) {
+
+                    q[7] = 1;
+
+                } else if (checkedId == R.id.radioButton19) {
+
+                    q[7] = 0;
+
+                } else {
+
+                    q[7] = -1;
+                }
+
+
+            }
+        });
+
 
 
         result.setOnClickListener(new View.OnClickListener() {
@@ -182,7 +224,7 @@ public class QuizFragment extends Fragment {
             public void onClick(View v) {
 
 
-                if (q1 == -1 || q2 == -1 || q3 == -1 || q4 == -1 || q5 == -1 || q6 == -1) {
+                if (q[0] == -1 || q[1] == -1 || q[2] == -1 || q[3] == -1 || q[4] == -1 || q[5] == -1 || q[6] == -1 || q[7] == -1) {
 
 
                     Snackbar.make(v, "Error :\nA question is not answered, please answer all questions", Snackbar.LENGTH_LONG).show();
@@ -192,19 +234,21 @@ public class QuizFragment extends Fragment {
 
                     Bundle bundle = new Bundle();
 
-                    bundle.putInt("q1", q1);
-                    bundle.putInt("q2", q2);
-                    bundle.putInt("q3", q3);
-                    bundle.putInt("q4", q4);
-                    bundle.putInt("q5", q5);
-                    bundle.putInt("q6", q6);
+                    bundle.putInt("q1", q[0]);
+                    bundle.putInt("q2", q[1]);
+                    bundle.putInt("q3", q[2]);
+                    bundle.putInt("q4", q[3]);
+                    bundle.putInt("q5", q[4]);
+                    bundle.putInt("q6", q[5]);
+                    bundle.putInt("q7", q[6]);
+                    bundle.putInt("q8", q[7]);
+
 
                     Fragment currentFragment = new ResultFragment();
 
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                    fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
 
                     currentFragment.setArguments(bundle);

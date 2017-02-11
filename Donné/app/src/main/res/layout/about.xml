@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="9dp"
-                android:text="NeedBlood"
+                android:text="Donné"
                 android:textColor="#2E7D32"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginTop="4dp"
-                android:text="Version Number :   1.1.0"
+                android:text="Version Number :   2.0.0"
                 android:textColor="#000"
                 android:textSize="15sp" />
 
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginTop="4dp"
-                android:text="NeedBlood, a blood donation service designed to :\n\n- Schedule Blood donation\n- Raise blood donation awareness\n- Create a database of blood donors\n- Provide Peer to Peer Blood donation\n- Prepare people to be eligible to donate blood\n"
+                android:text="Donné, a blood donation service designed to :\n\n- Schedule Blood donation\n- Raise blood donation awareness\n- Create a database of blood donors\n- Provide Peer to Peer Blood donation\n- Prepare people to be eligible to donate blood\n"
                 android:textColor="#000"
                 android:textSize="15sp" />
 
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginTop="4dp"
-                android:text="NeedBlood is signed under GNU Public License V3\n\nYou may re-use, clone, copy the code and resources with respect to the license."
+                android:text="Donné is signed under GNU Public License v3\n\nYou may re-use, clone, copy the code and resources with respect to the license.\n\nContributions to the project through github or email are welcomed."
                 android:textColor="#000"
                 android:textSize="15sp" />
 

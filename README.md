@@ -11,7 +11,7 @@ Blood donation is a serious global issue, and blood is needed everyday for patie
 We decided to change this and we developed a platform where blood donation could be revolutionized around the world.. 
 We created Donné.
 
-Donné,It's the name of Alfred François Donné, the discoverer of leukemia and blood platelets, the name of the platform was chosen to honor him.
+Donné, It's the name of Alfred François Donné, the discoverer of leukemia and blood platelets, the name of the platform was chosen to honor him.
 
 Also, Donné is the past of the verb donner in French, meaning to give, and an adjective, meaning achievable or affordable, pointing to our goal of providing a social network for blood donors.
 

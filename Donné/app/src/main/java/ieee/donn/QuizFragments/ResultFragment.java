@@ -1,4 +1,4 @@
-package bloodbank.ieee.com.bloodbank.QuizFragments;
+package ieee.donn.QuizFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ieee.donne.R;
+import ieee.donn.R;
 
-import bloodbank.ieee.com.bloodbank.Fragments.LearnFragment;
-import bloodbank.ieee.com.bloodbank.Fragments.RegisterFragment;
-import bloodbank.ieee.com.bloodbank.NeedBlood.ScheduleFragment;
+import ieee.donn.Fragments.LearnFragment;
+import ieee.donn.Fragments.RegisterFragment;
+import ieee.donn.NeedBlood.ScheduleFragment;
 
 /**
  * .
@@ -27,7 +27,7 @@ public class ResultFragment extends Fragment {
 
     View root;
     TextView resultt, data;
-    Button learn, reg, sched;
+    Button learn, sched;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,8 +38,7 @@ public class ResultFragment extends Fragment {
         data = (TextView) root.findViewById(R.id.data);
 
         learn = (Button) root.findViewById(R.id.learn);
-        reg = (Button) root.findViewById(R.id.reg);
-        sched = (Button) root.findViewById(R.id.sched);
+         sched = (Button) root.findViewById(R.id.sched);
 
 
         Bundle bundle = getArguments();
@@ -50,13 +49,14 @@ public class ResultFragment extends Fragment {
         int q4 = bundle.getInt("q4");
         int q5 = bundle.getInt("q5");
         int q6 = bundle.getInt("q6");
+        int q7 = bundle.getInt("q7");
+        int q8 = bundle.getInt("q8");
 
 
-        if (q1 == 0 || q2 == 0 || q3 == 0 || q4 == 0 || q5 == 0 || q6 == 0) {
+        if (q1 == 0 || q2 == 0 || q3 == 0 || q4 == 0 || q5 == 0 || q6 == 0|| q7 == 0 || q8 == 0) {
 
 
             sched.setVisibility(View.INVISIBLE);
-            reg.setVisibility(View.INVISIBLE);
 
             resultt.setText("Sorry, You did not pass the test");
 
@@ -96,23 +96,6 @@ public class ResultFragment extends Fragment {
         });
 
 
-        reg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Fragment currentFragment = new RegisterFragment();
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                fragmentTransaction.replace(R.id.mainFrame, currentFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
-            }
-        });
 
 
         sched.setOnClickListener(new View.OnClickListener() {
