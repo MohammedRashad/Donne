@@ -74,29 +74,58 @@ public class MessagingService extends FirebaseMessagingService {
     /**
      * Create and show a simple notification containing the received FCM message.
      */
-
     private void sendNotification(String messageBody, String bla) {
 
-        Intent intent = new Intent(this, ConnectUsers.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("AnotherActivity", messageBody);
+//
+//        Intent resultIntent = new Intent(getApplicationContext(), ConnectUsers.class);
+//        resultIntent.putExtra("data", messageBody);
+//        resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//
+//        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//
+//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+//                .setContentTitle("Blood Needed")
+//                .setContentText(bla)
+//                .setSmallIcon(R.drawable.ic_launcher)
+//                .setAutoCancel(true)
+//                .addAction(0 , "See More", contentIntent)
+//                .setContentIntent(contentIntent);
+//
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        notificationManager.notify(0, notificationBuilder.build());
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        int requestID = (int) System.currentTimeMillis();
+        int NOTIFICATION_ID = createID();
 
+        Uri alarmSound = getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationManager mNotificationManager =  (NotificationManager) getApplication().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setContentTitle("Blood Needed")
-                .setContentText(bla)
+        Intent notificationIntent = new Intent(getApplicationContext(), ConnectUsers.class);
+        notificationIntent.putExtra("data", messageBody);
+
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(this, requestID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(0, notificationBuilder.build());
+                .setContentTitle("Blood Needed")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(bla))
+                .setContentText(bla).setAutoCancel(true);
+        mBuilder.setSound(alarmSound);
+        mBuilder.setContentIntent(contentIntent);
+        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 
     }
 
+
+    public int createID(){
+        Date now = new Date();
+        int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss",  Locale.US).format(now));
+        return id;
+    }
 
     public void save(String key, String value) {
 
