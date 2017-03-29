@@ -445,7 +445,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_weight="0.23"
-                        android:text="\nDid you travel overseas in the last 4 months ?\n"
+                        android:text="\nAre you less than 45 Kg in weight ?\n"
                         android:textColor="#000"
                         android:textSize="19sp" />
 
@@ -510,7 +510,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_weight="0.23"
-                        android:text="\nDid you participate in any same-sex intercourse ?\n"
+                        android:text="\nDid you have fever in the past 3 weeks ?\n"
                         android:textColor="#000"
                         android:textSize="19sp" />
 
