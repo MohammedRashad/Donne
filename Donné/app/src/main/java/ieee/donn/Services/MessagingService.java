@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -12,9 +14,15 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import ieee.donn.Main.ConnectUsers;
 import ieee.donn.Main.MainActivity;
 import ieee.donn.R;
+
+import static android.media.RingtoneManager.getDefaultUri;
 
 /**
  * Created by rashad on 11/21/16.
@@ -26,6 +34,7 @@ public class MessagingService extends FirebaseMessagingService {
     SharedPreferences spf;
 
     private static final String TAG = "FirebaseMessageService";
+    private static final String ACTION_CONNECT_USERS = "ieee.donn.CONNECT_USERS";
 
     /**
      * Called when message is received.
@@ -59,6 +68,7 @@ public class MessagingService extends FirebaseMessagingService {
 
         //message will contain the Push Message
         String message = remoteMessage.getData().get("message");
+        Log.d(TAG,"Message: "+message);
 
         save("message", message);
 
@@ -76,47 +86,31 @@ public class MessagingService extends FirebaseMessagingService {
      */
     private void sendNotification(String messageBody, String bla) {
 
-//
-//        Intent resultIntent = new Intent(getApplicationContext(), ConnectUsers.class);
-//        resultIntent.putExtra("data", messageBody);
-//        resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//
-//        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//
-//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-//                .setContentTitle("Blood Needed")
-//                .setContentText(bla)
-//                .setSmallIcon(R.drawable.ic_launcher)
-//                .setAutoCancel(true)
-//                .addAction(0 , "See More", contentIntent)
-//                .setContentIntent(contentIntent);
-//
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//        notificationManager.notify(0, notificationBuilder.build());
-
         int requestID = (int) System.currentTimeMillis();
         int NOTIFICATION_ID = createID();
 
-        Uri alarmSound = getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationManager mNotificationManager =  (NotificationManager) getApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent intent = new Intent(this, ConnectUsers.class);
+        intent.setAction(ACTION_CONNECT_USERS);
+        intent.putExtra("data",messageBody);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, intent,
+                PendingIntent.FLAG_ONE_SHOT);
 
-        Intent notificationIntent = new Intent(getApplicationContext(), ConnectUsers.class);
-        notificationIntent.putExtra("data", messageBody);
+        //String channelId = getString(R.string.default_notification_channel_id);
+        Uri alarmSound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle("Blood Needed")
+                        .setContentText(bla)
+                        .setAutoCancel(true)
+                        .setSound(alarmSound)
+                        .setContentIntent(pendingIntent);
 
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(this, requestID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle("Blood Needed")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(bla))
-                .setContentText(bla).setAutoCancel(true);
-        mBuilder.setSound(alarmSound);
-        mBuilder.setContentIntent(contentIntent);
-        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        notificationManager.notify(100 /* ID of notification */, notificationBuilder.build());
 
     }
 
