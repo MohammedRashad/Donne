@@ -32,6 +32,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <service android:name=".Services.IDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -43,7 +44,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main.ConnectUsers"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="ieee.donn.CONNECT_USERS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
