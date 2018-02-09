@@ -34,7 +34,7 @@ public class MessagingService extends FirebaseMessagingService {
     SharedPreferences spf;
 
     private static final String TAG = "FirebaseMessageService";
-    private static final String ACTION_CONNECT_USERS = "ieee.donn.CONNECT_USERS";
+    public static final String ACTION_CONNECT_USERS = "ieee.donn.CONNECT_USERS";
 
     /**
      * Called when message is received.

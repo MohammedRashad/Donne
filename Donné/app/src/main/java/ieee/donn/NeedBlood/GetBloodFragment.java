@@ -25,6 +25,7 @@ import java.util.Locale;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dmax.dialog.SpotsDialog;
 import ieee.donn.R;
+import ieee.donn.Services.MessagingService;
 import ieee.donn.Util.FCMHelper;
 
 /**
@@ -108,6 +109,7 @@ public class GetBloodFragment extends Fragment {
                             notificationObject = new JsonObject();
                             notificationObject.addProperty("title", "Blood needed");
                             notificationObject.addProperty("body", "Someone is searching for donors in " + country);
+                            notificationObject.addProperty("click_action", MessagingService.ACTION_CONNECT_USERS);
 
                             dataObject = new JsonObject();
                             dataObject.addProperty("blood", bloodT);
