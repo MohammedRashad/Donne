@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ieee.donn.R;
+import ieee.donn.Services.MessagingService;
 
 public class ConnectUsers extends AppCompatActivity {
 
@@ -34,19 +35,27 @@ public class ConnectUsers extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        Log.d("ConnectUsers","Created");
+        if (getIntent()!=null){
+            Log.d("ConnectUsers","There's an action");
+            if (getIntent().getAction().equals(MessagingService.ACTION_CONNECT_USERS)){
+                Log.d("ConnectUsers","Right intent");
+            }
+        }
 
         if (getIntent().getExtras() != null) {
 
             for (String key : getIntent().getExtras().keySet()) {
 
-                String value = getIntent().getExtras().getString(key);
+                //String value = getIntent().getExtras().getString(key);
 
-                Log.e("dhg" , value);
+                //Log.e("dhg" , value);
+                Log.e("dhg",key);
                 if (key.equals("AnotherActivity")) {
 
                     try {
 
-                        JSONObject json_data = new JSONObject(value);
+                        JSONObject json_data = new JSONObject(getIntent().getExtras().getString(key));
 
                         blood = json_data.getString("blood");
                         city = json_data.getString("country");
