@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -16,7 +17,9 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import ieee.donn.Main.ConnectUsers;
 import ieee.donn.Main.MainActivity;
@@ -35,6 +38,7 @@ public class MessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "FirebaseMessageService";
     public static final String ACTION_CONNECT_USERS = "ieee.donn.CONNECT_USERS";
+    public Bundle messageBody;
 
     /**
      * Called when message is received.
@@ -56,6 +60,14 @@ public class MessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.e(TAG, "Message data payload: " + remoteMessage.getData());
+            messageBody = new Bundle();
+            Map<String,String> map  = remoteMessage.getData();
+            messageBody.putString("name",map.get("name"));
+            messageBody.putString("blood",map.get("blood"));
+            messageBody.putString("email",map.get("email"));
+            messageBody.putString("phone",map.get("phone"));
+            messageBody.putString("facebook",map.get("facebook"));
+            messageBody.putString("country",map.get("country"));
         }
 
         // Check if message contains a notification payload.
@@ -76,7 +88,7 @@ public class MessagingService extends FirebaseMessagingService {
         //If the key AnotherActivity has  value as False then when the user taps on notification, in the app MainActivity will be opened.
         String bla = remoteMessage.getNotification().getBody();
 
-        sendNotification("" + remoteMessage.getData(), bla);
+        sendNotification(messageBody, bla);
 
     }
 
@@ -84,7 +96,7 @@ public class MessagingService extends FirebaseMessagingService {
     /**
      * Create and show a simple notification containing the received FCM message.
      */
-    private void sendNotification(String messageBody, String bla) {
+    private void sendNotification(Bundle messageBody, String bla) {
 
         int requestID = (int) System.currentTimeMillis();
         int NOTIFICATION_ID = createID();

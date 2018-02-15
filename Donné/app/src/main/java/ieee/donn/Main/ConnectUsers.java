@@ -23,9 +23,9 @@ import ieee.donn.Services.MessagingService;
 public class ConnectUsers extends AppCompatActivity {
 
     Toolbar toolbar;
-    TextView data, patient;
+    TextView tvData, tvPatientName, tvPatientBlood;
     Button call, message, facebookThem;
-    String blood, city, email, phone, facebook, name;
+    String name,blood,email,phone,facebook, country;
 
 
     @Override
@@ -40,50 +40,31 @@ public class ConnectUsers extends AppCompatActivity {
             Log.d("ConnectUsers","There's an action");
             if (getIntent().getAction().equals(MessagingService.ACTION_CONNECT_USERS)){
                 Log.d("ConnectUsers","Right intent");
+
             }
         }
 
         if (getIntent().getExtras() != null) {
-
-            for (String key : getIntent().getExtras().keySet()) {
-
-                //String value = getIntent().getExtras().getString(key);
-
-                //Log.e("dhg" , value);
-                Log.e("dhg",key);
-                if (key.equals("AnotherActivity")) {
-
-                    try {
-
-                        JSONObject json_data = new JSONObject(getIntent().getExtras().getString(key));
-
-                        blood = json_data.getString("blood");
-                        city = json_data.getString("country");
-                        email = json_data.getString("email");
-                        facebook = json_data.getString("facebook");
-                        name = json_data.getString("name");
-                        phone = json_data.getString("phone");
-
-                    } catch (JSONException e) {
-
-                        e.printStackTrace();
-
-                    }
-
-                }
-            }
-
+            Bundle data = getIntent().getBundleExtra("data");
+            name = data.getString("name");
+            blood = data.getString("blood");
+            email = data.getString("email");
+            phone = data.getString("phone");
+            facebook = data.getString("facebook");
+            country = data.getString("country");
         }
 
-        data = (TextView) findViewById(R.id.data);
-        patient = (TextView) findViewById(R.id.patient);
+        tvData = (TextView) findViewById(R.id.data);
+        tvPatientName = (TextView) findViewById(R.id.tv_patient_name);
+        tvPatientBlood = findViewById(R.id.tv_patient_blood);
         call = (Button) findViewById(R.id.call);
         facebookThem = (Button) findViewById(R.id.facebook);
         message = (Button) findViewById(R.id.message);
 
 
-        data.setText("Phone :  " + phone + "\nEmail:  " + email + "\nFacebook :  " + facebook + "\n");
-        patient.setText("Name :  " + name + "\nBlood Type :  " + blood);
+        tvData.setText("Phone :  " + phone + "\nEmail:  " + email + "\nFacebook :  " + facebook + "\n");
+        tvPatientName.setText("Name :  " + name);
+        tvPatientBlood.setText("Blood Type :  " + blood);
 
 
         call.setOnClickListener(new View.OnClickListener() {

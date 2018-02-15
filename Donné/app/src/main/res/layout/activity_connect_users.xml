@@ -92,13 +92,23 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/patient"
+                        android:id="@+id/tv_patient_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="4dp"
-                        android:text="Name :\nBlood Type :"
+                        android:text="Name :"
+                        android:textColor="#000"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tv_patient_blood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Blood Type :"
                         android:textColor="#000"
                         android:textSize="15sp" />
 
