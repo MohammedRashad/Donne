@@ -16,11 +16,6 @@
         <activity
             android:name=".Main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <receiver
@@ -32,7 +27,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".Services.IDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -46,10 +40,19 @@
             android:name=".Main.ConnectUsers"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="ieee.donn.CONNECT_USERS"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="ieee.donn.CONNECT_USERS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.PhoneAuthActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.JoinNetworkActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package ieee.donn.NeedBlood;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -28,6 +29,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import dmax.dialog.SpotsDialog;
 import ieee.donn.Main.MainActivity;
 import ieee.donn.R;
+import ieee.donn.activities.PhoneAuthActivity;
 
 /**
  * .
@@ -122,8 +124,8 @@ public class ProfileFragment extends Fragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
 
                                 mFirebaseAuth.signOut();
-                                getActivity().recreate();
-
+                                startActivity(new Intent(getActivity(), PhoneAuthActivity.class));
+                                getActivity().finish();
                             }
                         }).show();
 

@@ -7,7 +7,7 @@
     android:background="#ECEFF1"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ieee.donne.Main.MainActivity"
+    tools:context="ieee.donn.Main.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 
