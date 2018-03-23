@@ -20,12 +20,12 @@ import ieee.donn.Main.MainActivity;
 public class AlarmReciever extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context arg0, Intent arg1) {
+    public void onReceive(Context context, Intent intent) {
 
-        Toast.makeText(arg0, "Alarm received!", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Alarm received!", Toast.LENGTH_LONG).show();
 
-        PendingIntent pi = PendingIntent.getActivity(arg0, 0, new Intent(arg0, MainActivity.class), 0);
-        Notification notification = new NotificationCompat.Builder(arg0)
+        PendingIntent pi = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
+        Notification notification = new NotificationCompat.Builder(context)
                 .setTicker("NeedBlood -- Donation Time")
                 .setSmallIcon(android.R.drawable.ic_menu_report_image)
                 .setContentTitle("Donation Time")
@@ -34,7 +34,7 @@ public class AlarmReciever extends BroadcastReceiver {
                 .setAutoCancel(true)
                 .build();
 
-        NotificationManager notificationManager = (NotificationManager) arg0.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
 
 
